@@ -106,8 +106,11 @@ syntax keyword jsTry                    try          skipwhite skipempty nextgro
 syntax keyword jsFinally      contained finally      skipwhite skipempty nextgroup=jsBlock
 syntax keyword jsCatch        contained catch        skipwhite skipempty nextgroup=jsParenCatch
 syntax keyword jsException              throw
-syntax keyword jsAsyncKeyword           async await
+syntax keyword jsAsyncKeyword           async
 syntax match   jsSwitchColon  contained /:/          skipwhite skipempty nextgroup=jsBlock
+
+syntax match jsAsyncKeyword /await/
+syntax match jsAsyncKeyword /\v\= *await/ conceal cchar=←
 
 " Keywords
 syntax keyword jsGlobalObjects  Array Boolean Date Function Iterator Number Object Symbol Map WeakMap Set RegExp String Proxy Promise Buffer ParallelArray ArrayBuffer DataView Float32Array Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array Uint8Array Uint8ClampedArray JSON Math console document window Intl Collator DateTimeFormat NumberFormat
